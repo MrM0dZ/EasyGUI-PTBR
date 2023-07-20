@@ -450,7 +450,7 @@ def change_choices():
 
 
 def clean():
-    return {"valor": "", "__type__": "update"}
+    return {"value": "", "__type__": "update"}
 
 
 sr_dict = {
@@ -1550,7 +1550,7 @@ def download_from_url(url, model):
     if url == '':
         return "URL não pode estar vazio."
     if model =='':
-        return "Nomeie seu modelo. Ex: 'nomemodelo'"
+        return "Nomeie seu modelo. Ex: nomemodelo"
     url = url.strip()
     zip_dirs = ["zips", "unzips"]
     for directory in zip_dirs:
@@ -1671,7 +1671,7 @@ def upload_to_dataset(files, dir):
     
 def zip_downloader(model):
     if not os.path.exists(f'./weights/{model}.pth'):
-        return {"__type__": "update"}, f'Confira se o nome da voz esta correto, não foi entrando {model}.pth'
+        return {"__type__": "update"}, f'Confira se o nome da voz esta correto, não foi encontrado {model}.pth'
     index_found = False
     for file in os.listdir(f'./logs/{model}'):
         if file.endswith('.index') and 'added' in file:
@@ -1876,7 +1876,7 @@ with gr.Blocks(theme=gr.themes.Base()) as app:
                         filter_radius1 = gr.Slider(
                             minimum=0,
                             maximum=7,
-                            label=i18n(">=3, use o filtro mediano para o resultado do reconhecimento do tom do 'harvest'"),
+                            label=i18n(">=3, use o filtro mediano para o resultado do reconhecimento do tom do harvest"),
                             value=3,
                             step=1,
                             interactive=True,
